@@ -20,6 +20,7 @@ using spring boot actuator we can trigger a microservice to reload its configura
 NOTE: in order to force a bean de reload its configuration it should be annotated with @RefreshScope 
 
 export ORDER_SERVICE="localhost:8082"
+
 curl -X POST http://$ORDER_SERVICE/actuator/refresh
 
 # Trigger configuration update through config server
@@ -30,4 +31,5 @@ and it will trigger all these instances
 * ensure kafka is running and listening on port: 9092
   
 export CONFIG_SERVER="localhost:8888"
+
 curl -X POST http://$CONFIG_SERVER/monitor -d "path=order-service"
