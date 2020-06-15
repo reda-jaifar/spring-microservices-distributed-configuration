@@ -33,3 +33,10 @@ and it will trigger all these instances
 export CONFIG_SERVER="localhost:8888"
 
 curl -X POST http://$CONFIG_SERVER/monitor -d "path=order-service"
+
+## Using API Gateway
+This service provides a routing to microservices, to reach out these:
+gateway service is running on port: 8910, to call order-service microservice, use curl http://{gateway host}:{gateway port}/{microservice uri}
+* Examples: 
+curl http://localhost:8910/orders/type
+curl http://localhost:8910/spares/
